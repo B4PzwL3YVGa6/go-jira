@@ -23,16 +23,7 @@ type provider interface {
 }
 
 func setupProvider() (provider, error) {
-	providerInitOnce.Do(func() {
-		defaultProvider, providerInitError = initializeProvider()
-	})
-
-	if providerInitError != nil {
-		return nil, providerInitError
-	} else if defaultProvider == nil {
-		return nil, ErrNoDefault
-	}
-	return defaultProvider, nil
+	return nil, ErrNoDefault
 }
 
 // Get gets the password for a paricular Service and Username using the
